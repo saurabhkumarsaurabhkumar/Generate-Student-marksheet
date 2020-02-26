@@ -1,0 +1,136 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'logo.css' %}">
+
+
+</head>
+<style>
+	
+
+.image {
+      position: absolute;
+	  height:26px;
+	  weidth:26px;
+  }
+
+  .image img{
+      position: absolute;
+      top: 30%;
+      left: 9%;
+	  height:50px;
+	  weidth:50px;
+	  
+  }
+
+
+  .spin {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #34495e;
+    border-radius: 100%;
+    animation: spin 0.75s infinite linear;
+  }
+
+  .spin::before, .spin::after {
+    left: -2px;
+    top: -2px;
+    display: none;
+    position: absolute;
+    content: '';
+    width: inherit;
+    height: inherit;
+    border: inherit;
+    border-radius: inherit;
+  }
+
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .spinner,
+  .spinner::before,
+  .spinner::after {
+    display: inline-block;
+    border-color: transparent;
+    border-top-color: red;
+    animation-duration: 1.2s;
+  }
+  .spinner::before {
+    transform: rotate(120deg);
+  }
+  .spinner::after {
+    transform: rotate(230deg);
+  }
+
+  @media (max-width:480px){
+    .spin {
+      width: 270px;
+      height: 270px;
+    }
+
+    .image img {
+        position: absolute;
+        top: 25%;
+        left: 21%;
+    }
+  }
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+<body>
+
+<div class="sidebar">
+
+
+  <div class="image">
+    <img src="{% static 'logo1.png' %}"/>
+    <div class="spin spinner"></div>
+  </div>
+
+<br><br><br><br>
+  <a href="{% url 'index2' %}"><i class="fa fa-fw fa-home"></i> Home</a>
+   <a href="{% url 'Login2' %}"><i class="fa fa-fw fa-sign-in"></i>Logins</a>
+  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+</div>
+
+<div class="main">
+  <!-- <img src="{% static 'logo1.png' %}" class="avatar"> -->
+  <h1 style="color: black;">NIT NAGALAND</h1>
+  <p>National Institute of Technology Nagaland is a higher education technology institute located at Dimapur [1]in Nagaland, India. It is one of the 31 National Institutes of Technology in India. NIT Nagaland was set up by the Government of India in 2009, as part of the Eleventh Five-Year Plan (2007–2012) for imparting technical education in the state of Nagaland. NIT Silchar has provided initial mentorship to NIT Nagaland for the initial two years of its establishment.</p>
+
+<p>The first batch of NIT Nagaland (2010-2014) studied at NIT Silchar for two years and then the NIT Nagaland has shifted to its home state, Nagaland in September 2012. NIT Nagaland is a federally funded technical university established by an Act of the Indian Parliament.</p>
+
+<p>The institute is located at the Old DC Complex at Chumukedima, about 14 kilometres (8.7 mi) from Dimapur.</p>
+
+<p>NIT Nagaland is managed by the NIT Nagaland Society registered under the Societies Act. The institute is fully funded by the Ministry of Human Resource Development, Government of India. At present six undergraduate courses in Engineering namely Electronics & instrumentation engineering, Electrical & Electronics Engineering, Electronics & Communication Engineering , Computer Science & Engineering, Civil engineering and Mechanical engineering and four master course namely Power System Engineering,VLSI Systems,Computer Science and Engineering, Communication engineering, MSc ( physics) and integrated M.Sc course B.S.M.S(Material Science) is running in the Institute.</p>
+<p>
+On 13 October 2012, former Union minister of human resource development, communication and information technology Kapil Sibal inaugurated the NIT Nagaland at Chumukedima. The NIT foundation laying function was attended by chief minister Neiphiu Rio, Lok Sabha member C. L. Ruala, top officials of the state government and the union HRD ministry.</p>
+</div>
+
+     
+</body>
+</html> 

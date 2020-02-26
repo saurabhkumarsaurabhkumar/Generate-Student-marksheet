@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'hod_login.css' %}">
+<meta name = "pinterest" content = "nopin" description = "Sorry, you can't save from my website!" />
+<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'demo.css' %}">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+</head>
+
+
+
+
+
+<style>
+  
+.image {
+      position: absolute;
+    height:26px;
+    weidth:26px;
+  }
+
+  .image img{
+      position: absolute;
+      top: 23%;
+      left: 9%;
+    height:50px;
+    weidth:50px;
+    
+  }
+
+
+  .spin {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #34495e;
+    border-radius: 100%;
+    animation: spin 0.75s infinite linear;
+  }
+
+  .spin::before, .spin::after {
+    left: -2px;
+    top: -2px;
+    display: none;
+    position: absolute;
+    content: '';
+    width: inherit;
+    height: inherit;
+    border: inherit;
+    border-radius: inherit;
+  }
+
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .spinner,
+  .spinner::before,
+  .spinner::after {
+    display: inline-block;
+    border-color: transparent;
+    border-top-color: white;
+    animation-duration: 1.2s;
+  }
+  .spinner::before {
+    transform: rotate(120deg);
+  }
+  .spinner::after {
+    transform: rotate(230deg);
+  }
+
+  @media (max-width:480px){
+    .spin {
+      width: 270px;
+      height: 270px;
+    }
+
+    .image img {
+        position: absolute;
+        top: 25%;
+        left: 21%;
+    }
+  }
+
+
+
+</style>
+
+
+
+
+
+
+
+
+<body>
+
+<div class="sidebar">
+
+
+   <div class="image">
+    <img src="{% static 'logo1.png' %}"/>
+    <div class="spin spinner"></div>
+  </div>
+<br><br><br>
+
+  
+  <a href="{% url 'spinner2' %}"><i class="fa fa-fw fa-home"></i> Home</a>
+
+
+  
+  <a href="{% url 'Login2' %}"><i class="fa fa-fw fa-sign-in"></i>Assistant Login</a>
+
+
+  
+  <a href="{% url 'dean_login2' %}"><i class="fa fa-fw fa-sign-in"></i>Dean Login</a>
+
+  <button onclick="document.getElementById('id01').style.display='block'" style="max-width:500px;>
+  <a href="{% url 'hod_login2' %}"><i class="fa fa-fw fa-sign-in"></i>Hod Login</a>
+</button>
+
+
+</div>
+
+<!-- <div class="main"> -->
+
+<h1 style="max-width:500px;margin:auto;color: blue;"><i class="fa fa-fw fa-arrow-left"></i>Hod Login</h1>
+
+
+
+
+<div class="main">
+  {% for message in messages %}
+            <h3 style="color: red;">{{message}}</h3>
+            {% endfor %}
+<div class="w3-container">
+  <div class="w3-padding-32 w3-green w3-circle">
+    <!-- <img src="{% static 'logo1.png' %}" class="w3-circle" style="width:15%";> -->
+    <h1 style="color: red; text-align: center; font-size: 30px;"><b>WELCOME HOD</b> </h1>
+  </div>
+</div>
+</div>
+
+
+
+
+
+<!-- <button onclick="document.getElementById('id01').style.display='block'" style="max-width:500px;margin:auto; text-align: center;">Dean Login</button> -->
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="{% url 'dean_login2' %}" method="post">
+    {% csrf_token %}
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="{% static 'logo1.png' %}" alt="Avatar" class="avatar">
+      <h2 style="max-width:500px;margin:auto;color: green;">Hod Login</h2>
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required><br>
+
+      <label for="uname"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" required><br>
+        
+      <label>
+        <input type="checkbox" checked="checked" name="remember" required> Remember me
+      </label>
+    </div>
+      <button type="submit">Login</button>
+      
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
+</div>
+</body>
+</html>

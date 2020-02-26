@@ -1,0 +1,152 @@
+{% load static %}
+<html>
+<head>
+<meta charset="utf-8">
+    <meta name="pinterest" content="nopin" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'logo.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'student_registration.css' %}">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+
+</head>
+
+<style>
+  
+.image {
+      position: absolute;
+    height:26px;
+    weidth:26px;
+  }
+
+  .image img{
+      position: absolute;
+      top: 23%;
+      left: 9%;
+    height:50px;
+    weidth:50px;
+    
+  }
+
+
+  .spin {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #34495e;
+    border-radius: 100%;
+    animation: spin 0.75s infinite linear;
+  }
+
+  .spin::before, .spin::after {
+    left: -2px;
+    top: -2px;
+    display: none;
+    position: absolute;
+    content: '';
+    width: inherit;
+    height: inherit;
+    border: inherit;
+    border-radius: inherit;
+  }
+
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .spinner,
+  .spinner::before,
+  .spinner::after {
+    display: inline-block;
+    border-color: transparent;
+    border-top-color: blue;
+    animation-duration: 1.2s;
+  }
+  .spinner::before {
+    transform: rotate(120deg);
+  }
+  .spinner::after {
+    transform: rotate(230deg);
+  }
+
+  @media (max-width:480px){
+    .spin {
+      width: 270px;
+      height: 270px;
+    }
+
+    .image img {
+        position: absolute;
+        top: 25%;
+        left: 21%;
+    }
+  }
+
+
+
+</style>
+
+
+
+
+<div class="main">
+<div class="w3-container">
+  <div class="w3-padding-32 w3-green w3-circle">
+    <!-- <img src="{% static 'logo1.png' %}" class="w3-circle" style="width:15%";> -->
+    <h1 style="color: red; text-align: center; font-size: 25px;"><b>STUDENT DASHBOARD</b> </h1><
+  </div>
+</div>
+</div>
+
+
+
+
+
+<body>
+
+<div class="sidebar">
+
+<div class="image">
+    <img src="{% static 'logo1.png' %}"/>
+    <div class="spin spinner"></div>
+  </div>
+<br><br><br>
+
+  
+ 
+ <div class="lds-hourglass"></div>
+  <a href="{% url 'student_registration2' %}"><i class="fa fa-fw fa-user-plus"></i>Students Reg. </a>
+</button>
+  <a href="{% url 'marksheet2' %}"><i class="fa fa-fw fa-file-text"></i>Get Marksheet</a>
+  <a href="{% url 'logout2' %}"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
+  
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

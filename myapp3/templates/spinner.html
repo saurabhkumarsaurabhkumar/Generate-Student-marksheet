@@ -1,0 +1,413 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>WELCOME</title>
+	<meta name="description" content="Learn how to recreate the preloader from Cantina Negrar. Tutorial for a passionate front-end web developers by Petr Tichy.">
+
+	<!--iOS -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'logo.css' %}">
+
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+	<link rel="stylesheet" href="{% static 'normalize.css' %}">
+	<link rel="stylesheet" href="{% static 'main.css' %}">
+	<script src="{% static 'vendor/modernizr-2.6.2.min.js' %}"></script>
+	<style type="text/css">
+	.back-link a {
+		color: #4ca340;
+		text-decoration: none; 
+		border-bottom: 1px #4ca340 solid;
+	}
+	.back-link a:hover,
+	.back-link a:focus {
+		color: #408536; 
+		text-decoration: none;
+		border-bottom: 1px #408536 solid;
+	}
+	h1 {
+		height: 100%;
+		/* The html and body elements cannot have any padding or margin. */
+		margin: 0;
+		font-size: 14px;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 32px;
+		margin-bottom: 3px;
+	}
+	.entry-header {
+		text-align: left;
+		margin: 0 auto 50px auto;
+		width: 80%;
+        max-width: 978px;
+		position: relative;
+		z-index: 10001;
+	}
+	#demo-content {
+		padding-top: 100px;
+	}
+
+
+
+
+   /* LOGO SPINNER*/
+   
+
+   .image {
+      position: absolute;
+	  height:26px;
+	  weidth:26px;
+  }
+
+  .image img{
+      position: absolute;
+      top: 30%;
+      left: 9%;
+	  height:50px;
+	  weidth:50px;
+	  
+  }
+
+
+  .spin {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #34495e;
+    border-radius: 100%;
+    animation: spin 0.75s infinite linear;
+  }
+
+  .spin::before, .spin::after {
+    left: -2px;
+    top: -2px;
+    display: none;
+    position: absolute;
+    content: '';
+    width: inherit;
+    height: inherit;
+    border: inherit;
+    border-radius: inherit;
+  }
+
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .spinner,
+  .spinner::before,
+  .spinner::after {
+    display: inline-block;
+    border-color: transparent;
+    border-top-color: red;
+    animation-duration: 1.2s;
+  }
+  .spinner::before {
+    transform: rotate(120deg);
+  }
+  .spinner::after {
+    transform: rotate(230deg);
+  }
+
+  @media (max-width:480px){
+    .spin {
+      width: 270px;
+      height: 270px;
+    }
+
+    .image img {
+        position: absolute;
+        top: 25%;
+        left: 21%;
+    }
+  }
+
+
+
+
+.mySlides {
+  display: none;
+}
+img {
+  /*vertical-align: middle;*/
+}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</style>
+</head>
+
+ <!-- <img src="{% static 'nit2.jpg' %}" width="100%" height="350" alt="Natural" /> -->
+<!-- <img src="{% static 'nit.jpg' %}" width="100%" height="350" alt="Natural" /> -->
+<!-- <h1 style="color: blue; text-align: center;">National Institute of Technology Nagaland</h1> -->
+
+
+<!-- <div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="{% static 'nit.jpg' %}" width="100%" height="500px" alt="Natural" />
+
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="{% static 'nit2.jpg' %}" width="100%" height="500 px" alt="Natural" />
+  
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="{% static 'nit.jpg' %}" width="100%" height="500 px" alt="Natural" />
+ 
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div> -->
+
+
+
+
+
+
+
+
+<body class="demo">      
+
+
+
+
+  <div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="{% static 'nit.jpg' %}" width="100%" height="500px" alt="Natural" />
+
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="{% static 'nit2.jpg' %}" width="100%" height="500 px" alt="Natural" />
+  
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="{% static 'nit.jpg' %}" width="100%" height="500 px" alt="Natural" />
+ 
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Demo content -->			
+	<div id="demo-content">
+		<header class="entry-header">
+
+
+			<h1 class="entry-title"></h1>
+		</header>
+
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+
+			<div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+
+		</div>
+
+
+
+
+         <div class="sidebar">
+
+
+  <div class="image">
+    <img src="{% static 'logo1.png' %}"/>
+    <div class="spin spinner"></div>
+  </div>
+
+<br><br><br><br>
+  <a href="{% url 'spinner2' %}"><i class="fa fa-fw fa-home"></i> Home</a>
+   <a href="{% url 'Login2' %}"><i class="fa fa-fw fa-sign-in"></i>Logins</a>
+  <a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+</div>
+
+
+
+		<div id="content">
+			
+
+
+		</div>
+
+	</div>
+	
+    
+
+
+	<script src="{% static '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' %}"></script>
+	<script>window.jQuery || document.write('<script src="{% static 'vendor/jquery-1.9.1.min.js'%}"><\/script>')</script>
+	<script src="{% static 'main.js' %}"></script>
+
+</body>
+
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+</script>
+
+
+</html>

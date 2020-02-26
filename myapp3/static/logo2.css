@@ -1,0 +1,15 @@
+.avatar{
+    width: 90px;
+    height: 90px;
+    border-radius: 20px;
+    position: absolute;
+    top: -50px;
+   
+	padding-top:62px;
+	margin-right:50%;
+	padding-left:440px;
+	opacity:1;
+	text-align: center;
+	
+	
+}

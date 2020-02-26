@@ -1,0 +1,187 @@
+{% load static %}
+
+<html>
+<head>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name = "pinterest" content = "nopin" description = "Sorry, you can't save from my website!" />
+<style>
+body{
+  font-family: "Lato", sans-serif;
+
+   background: linear-gradient(to bottom,red,white,green)
+}
+
+ .image {
+      position: absolute;
+	  height:26px;
+	  weidth:26px;
+  }
+
+  .image img{
+      position: absolute;
+      top: 100%;
+      left: 90%;
+	  height:400px;
+	  weidth:400px;
+	  
+  }
+
+
+  .spin {
+    position: relative;
+    display: inline-block;
+	left: 85%;
+    width: 450px;
+    height: 450px;
+    border: 2px solid #34495e;
+    border-radius: 100%;
+    animation: spin 0.75s infinite linear;
+  }
+
+  .spin::before, .spin::after {
+    left: -2px;
+    top: -2px;
+    display: none;
+    position: absolute;
+    content: '';
+    width: inherit;
+    height: inherit;
+    border: inherit;
+    border-radius: inherit;
+  }
+
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .spinner,
+  .spinner::before,
+  .spinner::after {
+    display: inline-block;
+    border-color: transparent;
+    border-top-color: green;
+    animation-duration: 1.1s;
+  }
+  .spinner::before {
+    transform: rotate(120deg);
+  }
+  .spinner::after {
+    transform: rotate(230deg);
+  }
+
+  @media (max-width:480px){
+    .spin {
+      width: 270px;
+      height: 270px;
+    }
+
+    .image img {
+        position: absolute;
+        top: 25%;
+        left: 21%;
+    }
+  }
+
+
+/* side bar code*/
+
+.sidebar {
+  height: 100%;
+  width: 280px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  /*background-color: #111;*/
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  /*color: #818181;*/
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+
+
+
+
+
+  
+
+
+</style>
+
+
+<script>
+window.addEventListener("image", function(){
+	var load_screen = document.getElementById("image");
+	document.body.removeChild(image);
+});
+</script>
+
+
+<body>
+
+
+<div class="sidebar">
+  <a href="{% url 'index2' %}">Go To Home <i class="fa fa-fw fa-arrow-right"></i><i class="fa fa-fw fa-home"></i></a>
+  
+</div>
+
+<div class="main">
+  </div>
+
+
+
+
+<!-- 
+<button style="color:yellow background-color:grey; font-size:25px;">
+<a href="{% url 'index2' %}">
+  
+GO TO HOME PAGE<i class="fa fa-fw fa-arrow-right"></i><i class="fa fa-fw fa-home"></i></a>
+</button> -->
+
+  <div class="image">
+    <img src="{% static 'logo1.png'  %}"/>
+    <div class="spin spinner"></div>
+	
+  </div>
+  
+
+
+
+</body>
+
+
+
+
+
+</html>

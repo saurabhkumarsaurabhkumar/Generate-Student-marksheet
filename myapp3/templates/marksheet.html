@@ -1,0 +1,459 @@
+
+{% load static %}
+<html>
+<head>
+</head>
+
+<link rel="stylesheet" type="text/css" href="{% static 'marksheet.css' %}">
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'sidenavbar.css' %}">  -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+
+
+
+
+
+
+.image {
+      position: absolute;
+    height:26px;
+    weidth:26px;
+  }
+
+  .image img{
+      position: absolute;
+      top: 23%;
+      left: 9%;
+    height:50px;
+    weidth:50px;
+    
+  }
+
+
+  .spin {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #34495e;
+    border-radius: 100%;
+    animation: spin 0.75s infinite linear;
+  }
+
+  .spin::before, .spin::after {
+    left: -2px;
+    top: -2px;
+    display: none;
+    position: absolute;
+    content: '';
+    width: inherit;
+    height: inherit;
+    border: inherit;
+    border-radius: inherit;
+  }
+
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .spinner,
+  .spinner::before,
+  .spinner::after {
+    display: inline-block;
+    border-color: transparent;
+    border-top-color: red;
+    animation-duration: 1.2s;
+  }
+  .spinner::before {
+    transform: rotate(120deg);
+  }
+  .spinner::after {
+    transform: rotate(230deg);
+  }
+
+  @media (max-width:480px){
+    .spin {
+      width: 270px;
+      height: 270px;
+    }
+
+    .image img {
+        position: absolute;
+        top: 25%;
+        left: 21%;
+    }
+  }
+
+
+
+
+
+
+
+
+
+</style>
+
+<!-- <marquee> -->
+<!-- </marquee> -->
+<body >
+
+
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+   <div class="image">
+    <img src="{% static 'logo1.png' %}"/>
+    <div class="spin spinner"></div>
+  </div>
+<br><br><br>
+    
+
+
+
+  
+    <a href="{% url 'student_registration2' %}"><i class="fa fa-fw fa-sign-in"></i>Student Registration</a>
+    <a href="{% url 'login_assistant2' %}"><i class="fa fa-fw fa-arrow-left"></i>Go Back</a>
+
+  <!-- <a href="#">Clients</a>
+  <a href="#">Contact</a> -->
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+
+
+
+<div class="image">
+    <img src="{% static 'logo1.png' %}"/>
+    <div class="spin spinner"></div>
+  </div>
+<br><br><br>
+
+
+
+
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "395px";
+}
+// 395px
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+
+
+
+<!-- <marquee> -->
+  <h3>STUDENT EVALUATION FORM </h3>
+<!-- </marquee> -->
+
+ 
+<table align="center" cellpadding = "10">
+ 
+<!----- First Name ---------------------------------------------------------->
+
+<div class="w3-container">
+
+
+
+<tr>
+<td>USER NAME</td>
+<div class="w3-panel w3-round-xlarge w3-teal">
+<td><input type="text" name="student_name" maxlength="30" placeholder="enter your name"
+ required />
+  <!-- {{ form1.student_name }} -->
+(max 30 characters a-z and A-Z)
+</div>
+</td>
+</tr>
+
+<!----- DATE OF BIRTH---------------------------------------------------------->
+<tr>
+<td>DATE OF BIRTH </td>
+<!-- {{ form1.Date_of_birth }} -->
+<td><input type="text" name="date_of_birth"  placeholder="D-O-B" required/>
+</td>
+</tr>
+
+
+
+
+<!----- REGISTRATION Number ---------------------------------------------------------->
+<tr>
+<td>REGISTRATION NUMBER</td>
+<td>
+<input type="text" name="Mobile_Number" maxlength="10" / placeholder="enter your Registration no." required>
+(10 digit number)
+</td>
+</tr>
+
+
+
+
+
+
+<!----- SUBJECT NAME -------------------------------------------------------->
+<tr>
+<td>SUBJECT NAME</td>
+ 
+<td>
+<select name="Birthday_day" id="Birthday_Day">
+<option value="">-CHOOSE SUBJECT NAME -</option>
+<option value="1st grade"> GRAPH THEORY</option>
+<option value="2nd grade">AUMOMETA THEORY</option>
+<option value="3rd grade">DATA MINING</option>
+<option value="4th grade">DIGITAL SIGNAL PROCESSING</option>
+<option value="4th grade">NETWORKING</option>
+<option value="5th grade">COMPUTER GRAPHICS</option>
+ 
+</select>
+ 
+</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+<!----- STUDENT GRADE SCORE -------------------------------------------------------->
+<tr>
+<td>STUDENT GRADE</td>
+ 
+<td>
+<select name="Birthday_day" id="Birthday_Day">
+<option value="">-CHOOSE Grade -</option>
+<option value="1st grade">S</option>
+<option value="2nd grade">A</option>
+<option value="3rd grade">B</option>
+<option value="4th grade">C</option>
+<option value="4th grade">D</option>
+<option value="5th grade">E</option>
+<option value="6th grade">U</option>
+ 
+</select>
+ 
+</td>
+</tr>
+
+
+<!----- SUBJECT CODE NUMBER -------------------------------------------------------->
+<tr>
+<td>SUBJECT CODE</td>
+ 
+<td>
+<select name="Birthday_day" id="Birthday_Day">
+<option value="">- CHOOSE CODE -</option>
+<option value="1st grade">CS962</option>
+<option value="2nd grade">CS302</option>
+<option value="3rd grade">CS303</option>
+<option value="4th grade">CS903</option>
+<option value="4th grade">CS301</option>
+<option value="5th grade">CS304</option>
+ 
+</select>
+ 
+</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <-----------------BRANCH-------------------> 
+<tr>
+<td>STUDENT BRANCH</td>
+ 
+<td>
+<select name="Birthday_day" id="Birthday_Day" required>
+<option value="">-CHOOSE BRANCH -</option>
+<option value="cse">CSE</option>
+<!-- <option value="eee">EEE</option>
+<option value="civil">CIVIL</option>
+<option value="EI">EI</option>
+<option value="Mechenical">Mechenical</option> -->
+</select>
+ 
+</select>
+ 
+</td>
+</tr>
+
+
+
+<!-- --------------------------YEARS OF STUDENT------------ -->
+
+<tr>
+<td>YEARS OF STUDENT </td>
+<td>
+
+<select name="Birthday_day" id="Birthday_Day" required>
+<option value="2016-2020">2016--2020</option>
+<option value="2017-2021">2017--2021</option>
+<option value="2018-2022">2018--2022</option>
+<option value="2019-2023">2019--2023</option>
+ 
+</select>
+ 
+</td>
+</tr>
+
+
+
+
+
+
+
+
+
+	
+ 
+<!----- Email Id ---------------------------------------------------------->
+<tr>
+<td>EMAIL ID</td>
+<td><input type="text" name="Email_Id" maxlength="100" / placeholder="enter your email id"></td>
+</tr>
+ 
+
+ 
+<!----- Gender ----------------------------------------------------------->
+<tr>
+<td>GENDER</td>
+<td>
+Male <input type="radio" name="Gender" value="Male" />
+Female <input type="radio" name="Gender" value="Female" />
+</td>
+</tr>
+ 
+ 
+<!----- City ---------------------------------------------------------->
+<!-- <tr>
+<td>CITY</td>
+<td><input type="text" name="City" maxlength="30" />
+(max 30 characters a-z and A-Z)
+</td>
+</tr> -->
+ 
+
+ 
+<!----- State ---------------------------------------------------------->
+<!-- <tr>
+<td>STATE</td>
+<td><input type="text" name="State" maxlength="30" />
+(max 30 characters a-z and A-Z)
+</td>
+</tr>
+  -->
+<!----- Country ---------------------------------------------------------->
+<!-- <tr>
+<td>COUNTRY</td>
+<td><input type="text" name="Country" value="India" readonly="readonly" /></td>
+</tr> -->
+ 
+ 
+<!----- Course ---------------------------------------------------------->
+<tr>
+<td>DEGREE</td>
+<td>
+<input type="radio" name="Course_BTECH" value="BTECH">
+B.TECH
+<input type="radio" name="Course_MTECH" value="MTECH">
+M.TECH
+
+</td>
+</tr>
+ 
+<!----- Submit and Reset ------------------------------------------------->
+<tr>
+<td colspan="7" align="center">
+<input type="submit" value="Submit">
+<!-- <input type="reset" value="Reset"> -->
+</td>
+</tr>
+</table>
+ 
+</form>
+<marquee>
+ <!-- <img src="{% static 'beautiful1.jpg' %}" width="100%" height="100%"> -->
+<!--   <img src="{% static 'beautiful.jpeg' %}" width="100%" height="100%">
+ -->
+</marquee>
+
+</div>
+</body>
+</html>

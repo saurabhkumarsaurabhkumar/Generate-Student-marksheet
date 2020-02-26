@@ -1,0 +1,249 @@
+{% load static %}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'hod_login.css' %}">
+<meta name = "pinterest" content = "nopin" description = "Sorry, you can't save from my website!" />
+<link rel="stylesheet" type="text/css" href="{% static 'index.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'demo.css' %}">
+
+
+
+</head>
+
+
+
+<style>
+  
+.image {
+      position: absolute;
+    height:26px;
+    weidth:26px;
+  }
+
+  .image img{
+      position: absolute;
+      top: 23%;
+      left: 9%;
+    height:50px;
+    weidth:50px;
+    
+  }
+
+
+  .spin {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #34495e;
+    border-radius: 100%;
+    animation: spin 0.75s infinite linear;
+  }
+
+  .spin::before, .spin::after {
+    left: -2px;
+    top: -2px;
+    display: none;
+    position: absolute;
+    content: '';
+    width: inherit;
+    height: inherit;
+    border: inherit;
+    border-radius: inherit;
+  }
+
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  .spinner,
+  .spinner::before,
+  .spinner::after {
+    display: inline-block;
+    border-color: transparent;
+    border-top-color: yellow;
+    animation-duration: 1.2s;
+  }
+  .spinner::before {
+    transform: rotate(120deg);
+  }
+  .spinner::after {
+    transform: rotate(230deg);
+  }
+
+  @media (max-width:480px){
+    .spin {
+      width: 270px;
+      height: 270px;
+    }
+
+    .image img {
+        position: absolute;
+        top: 25%;
+        left: 21%;
+    }
+  }
+
+
+
+</style>
+
+
+
+
+
+
+<body>
+
+
+<div class="sidebar">
+
+  
+
+   <div class="image">
+    <img src="{% static 'logo1.png' %}"/>
+    <div class="spin spinner"></div>
+  </div>
+<br><br><br><br>
+
+
+  <button onclick="document.getElementById('id01').style.display='block'" style="max-width:500px;>
+  <a href="{% url 'hod_login2' %}"><i class="fa fa-fw fa-sign-in"></i>Registration</a>
+</button><br>
+
+  <a href="{% url 'login_assistant2' %}"><i class="fa fa-fw fa-arrow-left"></i>Go Back</a>
+
+   <!--  <a href="{% url 'student_registration2' %}"><i class="fa fa-fw fa-sign-in"></i>registration</a>
+ -->
+
+
+</div>
+
+<!-- <div class="main"> -->
+
+<h1 style="max-width:500px;margin:auto;color: blue;"><i class="fa fa-fw fa-arrow-left"></i>Student Registrations</h1>
+
+
+<!-- <button onclick="document.getElementById('id01').style.display='block'" style="max-width:500px;margin:auto; text-align: center;">Dean Login</button> -->
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="{% url 'AddUser2' %}" method="post">
+    {% csrf_token %}
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="{% static 'logo1.png' %}" alt="Avatar" class="avatar">
+      <h2 style="max-width:500px;margin:auto;color: green;">Student Registrations </h2>
+    </div>
+
+    <div class="container">
+      <p>
+      <div>
+      <label for="username"><b>Username</b></label>
+     <!--  <input type="text" placeholder="Enter Username " class="saurabh1" name="username" required><br> -->
+        {{ form.username }}
+       </div>
+     </p>
+
+      <p>
+      <label for="dob"><b>D_O_B</b></label>
+      <!-- <input type="text" placeholder="DD-MM-YYYY" class="saurabh2" name="dob" required><br> -->
+       {{ form.dob }}
+       </p>
+
+       <p>
+       <label for="reg_no"><b>Reg_No</b></label>
+      <!-- <input type="text" placeholder="Enter registration no." class="saurabh3" name="reg_no" required><br> -->
+      {{ form.reg_no}}
+      </p>
+       
+       <p>
+      <label for="email"><b>Emailid</b></label>
+      <!-- <input type="text" placeholder="Enter email id" class="saurabh4" name="email"  required><br> -->
+      {{ form.email }}
+       </p>
+
+      <label for="mobile"><b>Mobile</b></label>
+      <!-- <input type="text" placeholder="Enter Mobile no." class="saurabh5" name="mobile" required><br> -->
+      {{ form.mobile }}
+       <br>
+      <label for="branch"><b>Branch</b></label>
+      <!-- <input type="text" placeholder="Enter Branch Name" class="saurabh6" name="branch" required><br> -->
+      {{ form.branch }}
+
+       <br>
+       <label for="degree"><b>Gender</b></label>
+      <!-- <input type="text" placeholder="Enter Gender name" class="saurabh7" name="gender" required><br> -->
+      {{ form.gender }}
+      <br>
+      <label for="degree"><b>Degree</b></label>
+      <!-- <input type="text" placeholder="Enter Degree name" class="saurabh8" name="degree" required><br> -->
+      {{ form.degree }}
+
+      <br>
+        <label>
+        <input type="checkbox" checked="checked" name="remember" required> Remember me
+      </label>
+    </div>
+      <button type="submit">Register</button>
+      
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
